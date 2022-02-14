@@ -2,9 +2,10 @@
 @import 'scale';
 $from: 1;
 $to: 7;
-
+// Can be one of fibonacci, quadratic, goldenratio, double
+$fn: goldenratio;
 :export{
   from: $from;
   to: $to;
 }
-@include generate(rem, $from,$to, goldenratio);
+@include generate(rem, $from,$to, $fn);
