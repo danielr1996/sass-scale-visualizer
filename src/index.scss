@@ -1,0 +1,10 @@
+@import 'reset';
+@import 'scale';
+$from: 1;
+$to: 7;
+
+:export{
+  from: $from;
+  to: $to;
+}
+@include generate(rem, $from,$to, goldenratio);

@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import variables from './index.scss'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const {from,to} = variables
+  const range = (start,stop) =>((start, stop, step) => Array.from({ length: (stop - start) / step + 1}, (_, i) => start + (i * step)))(start,stop,1)
+  const elements = range(1,parseInt(to)-parseInt(from)+1)
+  return <>
+    <div style={{marginBottom: '2rem'}}>{elements.map(e=><div key={e} className={`w-${e}`} style={{background: "tomato", height: '2rem'}}>{e}</div>)}</div>
+    <div style={{marginBottom: '2rem'}}>{elements.map(e=><span key={e} className={`m-${e}`} style={{background: "rebeccapurple",padding:'.5rem'}}>{e}</span>)}</div>
+    <div style={{marginBottom: '2rem'}}>{elements.map(e=><span key={e} className={`px-${e}`} style={{background: "dodgerblue",margin:'.5rem',paddingBottom: '.5rem',paddingTop: '.5rem'}}>{e}</span>)}</div>
+  </>
 }
 
 export default App;
+/*
+1
+2
+4
+8
+16
+ */
